@@ -8,7 +8,6 @@ const
     sassMiddleware      = require('node-sass-middleware'),
     browserify_express  = require('babelify-express'), 
     routes              = require('./routes/index'),
-    pug                 = require('pug'), 
     app                 = express();
 
 app
@@ -27,7 +26,7 @@ app
     }))
     .use(sassMiddleware({
         src                 : `${__dirname}/src/scss/styles.scss`,
-        dest                : `${__dirname}/public`,
+        dest                : `${__dirname}/public/css/`,
         indentedSyntax      : false, // true = .sass and false = .scss
         sourceMap           : true,
         outputStyle         : 'compressed'

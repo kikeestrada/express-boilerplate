@@ -1,12 +1,14 @@
-extends ../config/template 
+extends ../config/template
 append config
-	-currentPage		= title
+	-currentPage		= currentPage
 	-siteName			= 'Layouts'
 	-content			= 'content'
 	-pageDescription	= 'Pagina inicial de MyBoilerplate'
 block main-header
 block main-container
-	h1 portfolio
+h1=message
+h2=error.status
+pre=error.stack
 block main-footer
 block scripts
 
