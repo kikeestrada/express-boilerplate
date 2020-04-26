@@ -1,0 +1,25 @@
+{
+  "name": "express-boilerplate",
+  "version": "1.0.0",
+  "description": "express boilerplate",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  }, 
+  "author": "kikeestrada <kikeestrada@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babelify-express": "^0.1.7",
+    "connect-livereload": "^0.6.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "http-errors": "^1.6.3",
+    "livereload": "^0.9.1",
+    "morgan": "^1.9.1",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.4",
+    "reload": "^3.0.4",
+    "serve-favicon": "^2.5.0"
+  }
+}
