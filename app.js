@@ -7,12 +7,13 @@ const
     session             = require('express-session'),
     sassMiddleware      = require('node-sass-middleware'),
     browserify_express  = require('babelify-express'), 
-    routes              = require('./routes/index'),
+    routes              = require('./routes/index'), 
     app                 = express();
-
+    
 app
     .set('views', `${__dirname}/src/pug/pages`)
     .set('view engine', 'pug')
+
     .set('port', (process.env.PORT || 3000))
     .use(favicon(`${__dirname}/public/img/favicon.png`))
     .use(logger('dev'))
@@ -23,21 +24,24 @@ app
         secret              : 'ssshhhhh',
         saveUninitialized   : true,
         resave              : true
-    }))
+    })) 
     .use(sassMiddleware({
-        src                 : `${__dirname}/src/scss/styles.scss`,
-        dest                : `${__dirname}/public/css/`,
+        src                 : `${__dirname}./src/scss/styles.scss`,
+        dest                : `${__dirname}./public/css`,
+        debug               : true,
         indentedSyntax      : false, // true = .sass and false = .scss
+        outputStyle         : 'compressed',      
         sourceMap           : true,
-        outputStyle         : 'compressed'
     })) 
     .use(browserify_express({
         entry               : `${__dirname}/src/scripts/index.js`,
-        watch               : `${__dirname}/public/js/`,
-        mount               : '/js/script.js',
+        watch               : `${__dirname}/src/scripts/**/*.js`,
+        mount               : `${__dirname}/public/js/scripts.js`,
         verbose             : true,
-        minify              : true,
-        bundle_opts         : { debug: true }
+        minify              : false,
+        bundle_opts         : { debug: true },
+        write_file          : `${__dirname}/public/js/scripts.js`,
+        ignore: ['optional.js'] // optional array of files to ignore
     }))
     .use(express.static(`${__dirname}/public`))
     .use(routes)
@@ -46,5 +50,4 @@ app
         res.status(err.status || 500)
         res.render('error', { err })
     });
-
-module.exports = app;
+module.exports = app;  

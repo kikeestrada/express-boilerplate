@@ -1,6 +1,6 @@
 export const hello = () => {
-	console.log('Hello World')
+	console.log('Hello World') 
 };
-export const bye = () => {
+export const bye = () => { 
 	console.log('Bye World')
 };

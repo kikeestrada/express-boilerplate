@@ -1,8 +1,8 @@
 import {hello, bye} from "./modules/example"
 
- 
-hello();
-bye();
+   
+hello();  
+bye(); 
 
 
 (()=>{
